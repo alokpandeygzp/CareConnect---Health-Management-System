@@ -102,7 +102,7 @@ Each microservice is independently developed to ensure modularity and scalabilit
 
 ### 1. Clone the Repository
 ```bash
-$ git clone https://github.com/alokpandeygzp/CareConnect---Health-Management-System.git
+$ git clone https://github.com/alokpandeygzp/CareConnect-Health-Management.git
 $ cd CareConnect
 ```
 
