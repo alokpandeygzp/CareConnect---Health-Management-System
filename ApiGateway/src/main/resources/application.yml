@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/auth/**,/api/users/**
+
+        - id: PRESCRIPTION-SERVICE
+          uri: http://localhost:8084
+          predicates:
+            - Path=/prescriptions/**
+
+        - id: BILLING-SERVICE
+          uri: http://localhost:8083
+          predicates:
+            - Path=/billing/**
+
+        - id: PAYMENT-SERVICE
+          uri: http://localhost:8085
+          predicates:
+            - Path=/payments,/payments/**
+
+        - id: APPOINTMENT-SERVICE
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/appointments/**
+
+        - id: EMERGENCY-SERVICE
+          uri: http://localhost:8088
+          predicates:
+            - Path=/api/ambulance-requests/**
+
+  application:
+    name: API-GATEWAY
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+server:
+  port: 8080
